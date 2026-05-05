@@ -23,6 +23,9 @@ p,span{
 }
 
 .task-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #ffffff;
     padding: 15px;
     border-radius: 10px;
@@ -45,3 +48,42 @@ p,span{
 .empty{
     padding: 10px;
 }
+
+.task-content {
+    max-width: 70%;
+}
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.task-actions a {
+    text-decoration: none;
+    padding: 12px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+}
+.task-actions .edit-btn {
+    height: 60px;
+    width: 90px;
+    background-color: rgb(52, 104, 121);
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 22px;
+}
+
+.task-actions .delete-btn {
+    height: 60px;
+    width: 110px;
+    background-color: rgb(52, 104, 121);
+    color: white;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 22px;
+}
+

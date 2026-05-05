@@ -26,6 +26,22 @@ def add_task(req):
     
     return render(req,"tasks/add-task.html")
 
+@login_required
+def delete_task(req, id):
+    task = get_object_or_404(TasksModel,id = id, user=req.user)
+    task.delete()
+    return redirect('dashboard')
+
+@login_required
+def edit_task(req, id):
+    task = get_object_or_404(TasksModel, id=id,user= req.user)
+    if req.method == "POST":
+        task.title = req.POST.get('title')
+        task.Description = req.POST.get('Description')
+        task.save()
+        return redirect('dashboard')
+    return render(req, "tasks/edit-task.html",{"task":task})
+
 def user_login(req):
     if req.method == "POST":
         username = req.POST.get('username')
@@ -74,7 +90,6 @@ def register(req):
             
         
     return render(req, "tasks/register.html")
-
 
 def user_logout(req):
     logout(req)

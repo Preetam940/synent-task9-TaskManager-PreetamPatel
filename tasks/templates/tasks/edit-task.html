@@ -1,0 +1,24 @@
+{% extends "tasks/base.html" %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'tasks/css/edit-task.css' %}">
+{% endblock css %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <div class="container1">
+        <label>Title</label>
+        <input type="text" name="title" value="{{task.title}}" required>
+    </div>
+
+    <div class="container2">
+        <label id="label2">Description</label>
+        <textarea name="Description">{{task.Description}}</textarea>
+    </div>
+        <button type="submit" class="btn">Update Task</button>
+</form>
+
+{% endblock %}
